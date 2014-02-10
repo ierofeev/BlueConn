@@ -1,61 +1,59 @@
 package BlueConn;
 
-import de.avetana.bluetooth.connection.ConnectionFactory;
-import de.avetana.bluetooth.sdp.RemoteServiceRecord;
-import de.avetana.bluetooth.stack.AvetanaBTStack;
-import de.avetana.bluetooth.stack.BlueZ;
-import de.avetana.bluetooth.stack.BluetoothStack;
-import de.avetana.bluetooth.util.BTAddress;
-import de.avetana.bluetooth.util.LibLoader;
 
-public class BConnect extends BluetoothStack {
+/*
+public class BConnect extends Object implements Runnable {
 
-    private int m_bd;       // bluetooth descriptor
-    private int devID=-1;   // bluetooth adapter
-    private static RemoteServiceRecord myRecord;
-    private static boolean fini = false;
-    private static boolean initialized = false;
-    private static final Object mutex = new Object();
 
-    public BConnect() throws Exception{
-        this(0);
+    public void run(){
+
+        isPowerOn();
+        //getLocalDevice() ;
+        getFriendlyName();
+        //getBluetoothAddress();
+        getDiscoverable();
+
     }
-    public BConnect(int devID) throws Exception{
-        synchronized (mutex) {
-            if (initialized) return;
-            LibLoader.loadBTLib();
-            m_bd = BlueZ.hciOpenDevice(devID, new BlueZ());
-            this.devID = devID;
-            initialized = true;
+
+
+    public static boolean isPowerOn(){
+
+        if (true)  {
+            System.out.println("the device is running");
+        } else {
+            System.out.println("turn on the device");
         }
+    return true;
     }
 
-    public void setDeviceID(int dev) throws Exception{
-        if (BlueZ.myFactory.getConnections().size()!=0) throw new Exception("You must close before all connections");
-        if (BlueZ.myFactory.getNotifiers().size()!=0) throw new Exception("You must close before all connection notifiers");
-        BlueZ.myFactory = new ConnectionFactory();
-        if(devID > -1) {
-            try {
-                BlueZ.hciCloseDevice(devID);
-            } catch(Exception ex) {}
-        }
-        BlueZ.hciOpenDevice(dev, new BlueZ());
+    */
+/*public String getBluetoothAddress(Address){
+
+        return toString();
+
+    }*//*
+
+
+    public String getFriendlyName(){
+     return toString();
     }
 
-    public String getRemoteName(String bd_addr) throws Exception {
-        try {
-            String addr="";
-            if(bd_addr.length()==12) {
-                addr=BTAddress.transform(bd_addr);
-            } else addr=bd_addr;
-            return BlueZ.hciRemoteName(m_bd,addr);
-        }catch(Exception ex) {return "null";}
+
+
+
+
+    public int getDiscoverable(){
+        return (DiscoveryAgent.GIAC);
     }
+
+
 
 
     public static void main(String[] args) {
-        //BConnect FirstConn = new BConnect();
+
+     System.out.println(""+\n+"Discoverable device"+DiscoveryAgent.GIAC);
 
     }
 }
 
+*/
